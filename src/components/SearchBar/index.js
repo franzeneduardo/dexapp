@@ -15,7 +15,7 @@ const StyledInput = styled(Input)`
 function SearchBar() {
   return (
     <SearchBarContainer>
-      <StyledInput label="Buscar" type="text" placeholder="Enter your search query" />
+      <StyledInput label="Buscar" type="text" placeholder="Type here and find a Pokemon!" />
       <Button />
     </SearchBarContainer>
   );
