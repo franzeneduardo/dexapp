@@ -15,13 +15,6 @@ function CardContent() {
   return (
     <CardContentContainer>
       <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
     </CardContentContainer>
   );
 }

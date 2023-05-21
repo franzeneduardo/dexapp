@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Input from '../Input';
 import CardContent from '../CardContent';
+import SearchBar from '../SearchBar';
 
 const ContentContainer = styled.div`
   margin: 5% 10%;
@@ -10,7 +10,7 @@ const ContentContainer = styled.div`
 function Content() {
   return (
     <ContentContainer>
-      <Input label="Buscar" type="text" placeholder="Enter your search query" />
+<SearchBar />
       <CardContent />
     </ContentContainer>
   );
