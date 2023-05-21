@@ -1,27 +1,31 @@
 import axios from 'axios';
 
-const api = axios.create({
-  baseURL: 'https://pokeapi.co/api/v2', // Base URL of the PokeAPI
-});
+const API_BASE_URL = 'https://pokeapi.co/api/v2';
 
-// Example API request to get a list of Pokemon
-export const getPokemonList = () => {
-  return api.get('/pokemon')
-    .then(response => response.data)
-    .catch(error => {
-      console.error(error);
-      throw error;
-    });
+// Function to fetch details of a specific Pokémon by ID
+export const getPokemonDetails = async (pokemonId) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/pokemon/${pokemonId}`);
+    return response.data;
+  } catch (error) {
+    throw new Error('Failed to fetch Pokémon details');
+  }
 };
 
-// Example API request to get details of a specific Pokemon
-export const getPokemonDetails = (pokemonId) => {
-  return api.get(`/pokemon/${pokemonId}`)
-    .then(response => response.data)
-    .catch(error => {
-      console.error(error);
-      throw error;
-    });
+// Function to fetch all Pokémon IDs
+export const getAllPokemonIds = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/pokemon?limit=151`);
+    const pokemonList = response.data.results;
+    const pokemonIds = pokemonList.map(pokemon => extractPokemonId(pokemon.url));
+    return pokemonIds;
+  } catch (error) {
+    throw new Error('Failed to fetch Pokémon IDs');
+  }
 };
 
-export default api;
+// Utility function to extract Pokémon ID from the URL
+const extractPokemonId = (url) => {
+  const urlParts = url.split('/');
+  return parseInt(urlParts[urlParts.length - 2]);
+};

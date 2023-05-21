@@ -21,19 +21,19 @@ const PokemonName = styled.p`
   font-size: 14px;
 `;
 
-function Card() {
+function Card({ pokemonId }) {
   const [pokemon, setPokemon] = useState(null);
 
   useEffect(() => {
-    // Fetch the details of a specific Pokemon (e.g., Pikachu with ID 25)
-    getPokemonDetails(25)
+    // Fetch the details of the specific Pokemon based on the provided ID
+    getPokemonDetails(pokemonId)
       .then(data => {
         setPokemon(data);
       })
       .catch(error => {
         console.error(error);
       });
-  }, []);
+  }, [pokemonId]);
 
   return (
     <CardContainer>
