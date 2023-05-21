@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ButtonContainer = styled.button`
-  position: absolute;
   width: 113px;
   height: 55px;
   background: #D53B47;

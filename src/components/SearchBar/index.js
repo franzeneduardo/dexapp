@@ -8,10 +8,14 @@ const SearchBarContainer = styled.div`
   align-items: center;
 `;
 
+const StyledInput = styled(Input)`
+  margin-right: 10px;
+`;
+
 function SearchBar() {
   return (
     <SearchBarContainer>
-      <Input label="Buscar" type="text" placeholder="Enter your search query" />
+      <StyledInput label="Buscar" type="text" placeholder="Enter your search query" />
       <Button />
     </SearchBarContainer>
   );
