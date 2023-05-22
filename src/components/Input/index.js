@@ -19,7 +19,7 @@ const Label = styled.label`
   color: #FFFFFF;
 `;
 
-const Input = styled.input`
+const InputElement = styled.input`
   height: 55px;
   width: 330px;
   border-radius: 16px;
@@ -35,11 +35,15 @@ const Input = styled.input`
   text-align: left;
 `;
 
-function InputComponent({ label, ...rest }) {
+function InputComponent({ label, value, onInputChange, ...rest }) {
+  const handleChange = (event) => {
+    onInputChange(event.target.value);
+  };
+
   return (
     <InputContainer>
       <Label>{label}</Label>
-      <Input {...rest} />
+      <InputElement value={value} onChange={handleChange} {...rest} />
     </InputContainer>
   );
 }

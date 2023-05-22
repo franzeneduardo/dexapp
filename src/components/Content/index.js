@@ -10,7 +10,7 @@ const ContentContainer = styled.div`
 function Content() {
   return (
     <ContentContainer>
-<SearchBar />
+      <SearchBar />
       <CardContent />
     </ContentContainer>
   );

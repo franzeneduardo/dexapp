@@ -17,7 +17,7 @@ export const getAllPokemonIds = async () => {
   try {
     const response = await axios.get(`${API_BASE_URL}/pokemon?limit=151`);
     const pokemonList = response.data.results;
-    const pokemonIds = pokemonList.map(pokemon => extractPokemonId(pokemon.url));
+    const pokemonIds = pokemonList.map((pokemon) => extractPokemonId(pokemon.url));
     return pokemonIds;
   } catch (error) {
     throw new Error('Failed to fetch Pokémon IDs');
@@ -28,4 +28,14 @@ export const getAllPokemonIds = async () => {
 const extractPokemonId = (url) => {
   const urlParts = url.split('/');
   return parseInt(urlParts[urlParts.length - 2]);
+};
+
+// Function to search for a Pokémon by name or ID
+export const searchPokemon = async (searchQuery) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/pokemon/${searchQuery}`);
+    return response.data;
+  } catch (error) {
+    throw new Error('Failed to fetch Pokémon');
+  }
 };

@@ -14,8 +14,12 @@ const ButtonContainer = styled.button`
   color: #FFFFFF;
 `;
 
-function Button() {
-  return <ButtonContainer>Buscar</ButtonContainer>;
+function Button({ onClick }) {
+  const handleClick = () => {
+    onClick();
+  };
+
+  return <ButtonContainer onClick={handleClick}>Buscar</ButtonContainer>;
 }
 
 export default Button;
